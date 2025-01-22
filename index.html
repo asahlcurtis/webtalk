@@ -1,0 +1,45 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append to Textbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #output {
+            width: 100%;
+            height: 200px;
+            margin-top: 10px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Append to Textbox</h1>
+    <div>
+        <input type="text" id="userInput" placeholder="Type something..." style="width: 80%; padding: 10px;" />
+        <button onclick="appendText()" style="padding: 10px;">Add</button>
+    </div>
+    <textarea id="output" readonly placeholder="Your text will appear here..."></textarea>
+
+    <script>
+        function appendText() {
+            const inputField = document.getElementById("userInput");
+            const outputBox = document.getElementById("output");
+            const text = inputField.value.trim();
+
+            if (text) {
+                outputBox.value += (outputBox.value ? "\n" : "") + text;
+                inputField.value = ""; // Clear the input field
+            } else {
+                alert("Please enter some text before clicking Add.");
+            }
+        }
+    </script>
+</body>
+</html>
+
